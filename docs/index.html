@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/png" href="./favicon1.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  </head>
+  <body>
+    <div id="bg-body" style="position: fixed; z-index: -1">
+      <!-- <img id="bg-image" width="100%" src="./asset/body_bg2.png" /> -->
+    </div>
+    <div class="content-div" id="content-div">
+      <div id="minting-loading"><div class="spinner"></div></div>
+      <!-- <div class="modal-popup">
+        <div class="modal_body">
+          <div id="popup-content">
+            <p>There are not enough cards to mint.</p>
+          </div>
+          <div>
+            <button onclick="closePopup()">Close</button>
+          </div>
+        </div>
+      </div> -->
+      <div>
+        <p
+          class="minting-title"
+          style="color: var(--primary-color); font-size: 40px"
+        >
+          <b>Fortress Arena Minting</b>
+        </p>
+        <!-- <p>(Test mode)</p>
+        <p>
+          The actual presale on Ethereum mainnet will start on 1:00 PM January
+          6th, 2022(UTC).
+        </p> -->
+      </div>
+      <div>
+        <div class="frame-common">
+          <div id="div-network" style="margin-bottom: 20px">
+            Current Network :
+            <span class="current-network" style="margin-right: 10px"></span>
+          </div>
+
+          <div id="network-info" style="display: block; text-align: center">
+            <div>
+              <p style="color: #ffffff">
+                Check your wallet is connected to the Rinkeby Testnet.
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="connect-btn"
+            style="display: none; margin-bottom: 30px; margin-top: 10px"
+          >
+            <button onclick="connectWallet()">Connect Wallet</button>
+          </div>
+
+          <div>
+            <div id="div-myaddress" style="display: none">
+              My Address :
+              <span class="my-address" style="margin-right: 10px"></span>
+            </div>
+            <div>
+              NFT Address :
+              <span class="nft-address" style="margin-right: 10px"></span>
+            </div>
+            <div>
+              Opensea Collection :
+              <span class="opensea-address" style="margin-right: 10px"></span>
+            </div>
+            <div style="margin-top: 30px">
+              <a
+                target="_blank"
+                style="
+                  text-decoration: underline;
+                  color: coral;
+                  font-size: 25px;
+                "
+                href="./guide/mintingguide.html"
+                >View the Minting Guide</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="frame-common">
+          <div>
+            <p style="color: #ffffff">
+              This is the Fortress Arena TANK NFT minting page.
+            </p>
+            <div class="description" style="color: #ffffff"></div>
+          </div>
+        </div>
+        <div id="content_body" style="display: none">
+          <div id="comingsoon-div" style="display: none">
+            <div id="comingsoon-content" class="frame-common">
+              <h2>TANK NFT minting is not available at this time.</h2>
+            </div>
+          </div>
+
+          <div id="minting-body" class="frame-common" style="display: none">
+            <div>
+              <p
+                class="mintingfee"
+                style="color: var(--primary-color); font-size: 20px"
+              ></p>
+            </div>
+            <div>
+              <img class="mint-img" src="./asset/tank1.png" />
+            </div>
+            <div>
+              <p
+                class="claimedcnt"
+                style="color: var(--primary-color); font-size: 20px"
+              ></p>
+            </div>
+            <div>
+              <select id="claimcount"></select>
+              <button
+                id="btn_mint"
+                style="margin-left: 10px"
+                onclick="nftMint()"
+                disabled
+              >
+                Mint Now
+              </button>
+            </div>
+            <div>
+              <p
+                id="minterror"
+                style="
+                  color: var(--second-color);
+                  font-size: 24px;
+                  display: none;
+                "
+              ></p>
+            </div>
+          </div>
+
+          <div id="div-mint-result" class="frame-common" style="display: none">
+            <div>
+              <p style="color: var(--primary-color); font-size: 20px">
+                <b>Mint Result</b>
+              </p>
+            </div>
+            <div class="cards-deck-outside">
+              <div id="cards_deck" class="deck"></div>
+            </div>
+          </div>
+          <div id="div-minted-cards" class="frame-common">
+            <button
+              id="showcard-btn"
+              onclick="showMyCards()"
+              style="margin-bottom: 10px"
+            >
+              Show My TANK NFTs
+            </button>
+            <div>
+              <p
+                class="mycardscnt"
+                style="color: var(--primary-color); font-size: 20px"
+              ></p>
+            </div>
+            <div class="cards-deck-outside">
+              <div id="minted_cards_deck" class="deck"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="./js/1.2.11-web3-min.js"></script>
+    <script src="./js/5.2-umd-min.js" type="application/javascript"></script>
+    <script
+      src="./contractabi/ntfAbi_rinkeby.js"
+      type=" text/javascript"
+    ></script>
+    <script
+      src="./contractabi/ntfAbi_eth_mainnet.js"
+      type=" text/javascript"
+    ></script>
+    <script src="./js/index.js" type="application/javascript"></script>
+    <script src="./js/utils.js" type=" text/javascript"></script>
+  </body>
+</html>
