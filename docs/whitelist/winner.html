@@ -37,22 +37,25 @@
     </div>
     <script src="../js/utils.js" type=" text/javascript"></script>
     <script>
+      const contractAddr = "0x6466514368A0c2E1396BC3164495c6f90cBA92F6";
+
       async function checkAddr() {
         // let _addr = document.getElementById("input-address").value;
         let _addr = $("#input-address").val();
+        // console.log("_addr => ", _addr);
         let result_str = "";
-        if(_addr.length  >0){
+        if(_addr.trim().length  >0){
           let mResult = await checkWhiteList(
-          "0x6466514368A0c2E1396BC3164495c6f90cBA92F6",
-          _addr
+          contractAddr,
+          _addr.trim()
         );
-
+          // console.log("mResult => ", mResult);
         if (mResult.result == null) {
           result_str = '<p class="content_result">'+_addr + '<br> is not registered for any Pre-sale rounds<br><br><span style="color:black;">Public sale start on 5:00 PM January 6th, 2022 (UTC)</span> </p>';
         } else {
-          switch (mResult.result) {
+          switch (mResult.result.toString()) {
             case "1":
-              result_str =  '<p class="content_result">'+_addr + '<br> is registered for Pre-sale Round 1<br><br><span style="color:black;">Pre-sale Round 1 start on 1:00 PM January 6th, 2022 (UTC)</span> </p>';
+              result_str = '<p class="content_result">' + _addr + '<br> is registered for Pre-sale Round 1<br><br><span style="color:black;">Pre-sale Round 1 start on 1:00 PM January 6th, 2022 (UTC)</span> </p>';
 
               break;
             case "2":
@@ -64,7 +67,7 @@
           result_str = '<p class="content_result">Please enter your address</p>';
         }
 
-        console.log("result_str =>", result_str);
+        // console.log("result_str =>", result_str);
         $("#check-result").html(result_str);
       }
     </script>
