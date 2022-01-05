@@ -337,10 +337,11 @@ async function nftMint() {
     console.log("mintingState -> ", mintingState);
     // getMinting Fee
     const fee_wei = await nftContract.methods.MINTING_FEE().call();
-    const fee_gwei = ethers.utils.formatUnits(fee_wei, 18);
-
     const mintingCount = $("#claimcount option:selected").val();
-    const total_mintingfee = parseFloat(fee_gwei) * parseFloat(mintingCount);
+
+    const wei_value = ethers.BigNumber.from(fee_wei).mul(mintingCount);
+    const total_mintingfee = ethers.utils.formatEther(wei_value);
+
     // console.log("total_mintingfee =>", total_mintingfee);
 
     switch (mintingState.toString()) {
