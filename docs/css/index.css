@@ -174,6 +174,15 @@ select {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+@supports not (
+  (-webkit-backdrop-filter: brightness(40%) blur(5px)) or
+    (backdrop-filter: brightness(40%) blur(5px))
+) {
+  .content-div {
+    background-color: #1b1c1d;
+    opacity: 0.7;
+  }
+}
 
 .modal-popup {
   position: absolute;
