@@ -107,6 +107,22 @@ async function copyImg(tokenIds) {
   }
 }
 
+async function checkWhiteList(contract, address) {
+  let api = "https://gateway-ipfs.atomrigs.io/api/";
+  const resource = "check_white_list";
+  data = { contract, address, method: "preMint" };
+  res = await apiPost(api, resource, data);
+  json = await res.json();
+  // console.log("res => ", res);
+  if (res.status == 200) {
+    return json;
+  } else {
+    console.log("apiPost error => ", json.err);
+    // return json.err;
+    return null;
+  }
+}
+
 function getWindowWidth() {
   var width =
     window.innerWidth ||

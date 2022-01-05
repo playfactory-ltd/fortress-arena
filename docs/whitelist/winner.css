@@ -1,0 +1,53 @@
+body {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: "Kanit", sans-serif;
+}
+
+.main-div {
+  justify-content: center;
+  display: grid;
+}
+
+.content-div {
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.input-address {
+  width: 70%;
+  height: 30px;
+  font-size: 20px;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid coral;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+  background: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: coral;
+  /* font-family: "Fuzzy Bubbles", cursive; */
+  font-family: "Kanit", sans-serif;
+}
+
+button:hover {
+  background: coral;
+  color: black;
+  cursor: pointer;
+}
+
+.content_result {
+  font-size: 25px;
+  color: coral;
+}
