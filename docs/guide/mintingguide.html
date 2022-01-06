@@ -15,9 +15,27 @@
   <body>
     <div class="main-div">
       <div class="content-div">
-        <div>
+        <div style="text-align: center;">
           <h1>Official Fortress Arena TANK NFT Mint Guide</h1>
         </div>
+        <div id="div-countdown" style="text-align: center;  padding: 30px;
+        border-radius: 20px;
+        margin-top: 20px;
+        background-color: coral;">
+          <h2 style="margin-bottom: 0px;  color:white">
+            Time remaining until the Presale Whitelist Round 1 starts
+          </h2>
+          <h2
+            id="countdown"
+            style="margin-top: 0px; color:white"
+          ></h2>
+          <a
+            target="_blank"
+            style="text-decoration: underline; color: white; font-size: 25px"
+            href="../index.html"
+            >Go to Minting page</a
+          >
+        </div>        
         <p>We have prepared a Fortress Arena TANK NFT Minting Guide for you.</p>
         <p>Follow the steps below.</p>
         <div>
@@ -105,5 +123,9 @@
         </div>
       </div>
     </div>
+    <script src="../js/utils.js" type=" text/javascript"></script>
+    <script>
+      countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
+    </script>    
   </body>
 </html>

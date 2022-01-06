@@ -20,7 +20,7 @@
     <div class="main-div">
       <img id="bg-image" width="100%" src="../asset/banner.jpg"/>
       <div class="content-div">
-        <div style="height: 100px; ">
+        <div style="height: 50px; ">
           <h1>Fortress Arena NFT Pre-sale white list result</h1>
         </div>
         <h3>Please enter your address and click the Verification button.</h3>
@@ -32,10 +32,33 @@
       <div class="content-div">
         <div id="check-result"></div>
         </div>
+        <div id="div-countdown" style="text-align: center;  padding: 20px;
+        border-radius: 20px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background-color: coral;">
+          <h2 style="margin-bottom: 0px;  color:white">
+            Time remaining until the Presale Whitelist Round 1 starts
+          </h2>
+          <h2
+            id="countdown"
+            style="margin-top: 0px; color:white"
+          ></h2>
+          <a
+            target="_blank"
+            style="text-decoration: underline; color: white; font-size: 25px"
+            href="../index.html"
+            >Go to Minting page</a
+          >
+        </div>  
       </div>
   
     </div>
     <script src="../js/utils.js" type=" text/javascript"></script>
+    <script>
+      countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
+    </script> 
     <script>
       const contractAddr = "0x6466514368A0c2E1396BC3164495c6f90cBA92F6";
 
@@ -51,15 +74,18 @@
         );
           // console.log("mResult => ", mResult);
         if (mResult.result == null) {
-          result_str = '<p class="content_result">'+_addr + '<br> is not registered for any Pre-sale rounds<br><br><span style="color:black;">Public sale start on 5:00 PM January 6th, 2022 (UTC)</span> </p>';
+          let start_pub = convDatetoTime("2022-01-06T17:00:00.000Z");
+          result_str = '<p class="content_result">'+_addr + '<br> is not registered for any Pre-sale rounds<br><br><span style="color:black;">Public sale start on '+start_pub.toString()+'</span> </p>';
         } else {
           switch (mResult.result.toString()) {
             case "1":
-              result_str = '<p class="content_result">' + _addr + '<br> is registered for Pre-sale Round 1<br><br><span style="color:black;">Pre-sale Round 1 start on 1:00 PM January 6th, 2022 (UTC)</span> </p>';
+            let start_pre_r1 = convDatetoTime("2022-01-06T13:00:00.000Z");
+              result_str = '<p class="content_result">' + _addr + '<br> is registered for Pre-sale Round 1<br><br><span style="color:black;">Pre-sale Round 1 start on '+start_pre_r1.toString()+'</span> </p>';
 
               break;
             case "2":
-              result_str = '<p class="content_result">'+ _addr + '<br> is registered for Pre-sale Round 2<br><br><span style="color:black;">Pre-sale Round 2 start on 3:00 PM January 6th, 2022 (UTC)</span> </p>';
+            let start_pre_r2 = convDatetoTime("2022-01-06T15:00:00.000Z");
+              result_str = '<p class="content_result">'+ _addr + '<br> is registered for Pre-sale Round 2<br><br><span style="color:black;">Pre-sale Round 2 start on '+start_pre_r2.toString()+'</span> </p>';
               break;
           }
         }
