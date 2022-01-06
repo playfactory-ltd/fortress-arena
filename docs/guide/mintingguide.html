@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
     <link rel="stylesheet" type="text/css" href="./mintingguide.css" />
     <link rel="icon" type="image/png" href="../favicon1.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,19 +65,18 @@
         <div>
           <h2>Pre-sale ( Whitelist )</h2>
           <ul>
-            <h3>Thursday, January 6th, 2022</h3>
-            <li>Round 1 : (UTC) 1 pm ~ 2:40 pm</li>
+            <li id="pre-round1-time">Round 1 : (UTC) 1 pm ~ 2:40 pm</li>
             <p style="color: coral;">If all quantities are not sold within 100 minutes, Round 2 will start.<br><br>
               All participants who have been registered on the whitelist can mint up to 4 TANK NFTs in Round 2. <br>
               ( Round 1 participants can mint up to 4 TANK NFTs per address, including minted TANK NFTs from Round 1. )
             </p>
-            <li>Round 2 : (UTC) 3 pm ~ 4:40 pm</li>
+            <li id="pre-round2-time">Round 2 : (UTC) 3 pm ~ 4:40 pm</li>
           </ul>
           <br>
           <h2>Public sale</h2>
           <ul>
-            <li>Open  : (UTC) 5 pm , Thursday, January 6th, 2022</li>
-            <li>Close : (UTC) 12:59 pm , Wednesday, January 12th, 2022</li>
+            <li id="public-open-date">Open  : (UTC) 5 pm , Thursday, January 6th, 2022</li>
+            <li id="public-close-date">Close : (UTC) 12:59 pm , Wednesday, January 12th, 2022</li>
             <p style="color: coral;">When all quantities are sold, the public sale ends even before the closing time</p>
             
           </ul>
@@ -140,5 +144,24 @@
     <script>
       countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
     </script>    
+    <script>
+      let pre_round1_date = convDatetoTime("2022-01-06T13:00:00.000Z");
+      let pre_round1_end_date = convDatetoTime("2022-01-06T14:40:00.000Z");
+      let pre_round2_date = convDatetoTime("2022-01-06T15:00:00.000Z");
+      let pre_round2_end_date = convDatetoTime("2022-01-06T16:40:00.000Z");
+      let public_open_date = convDatetoTime("2022-01-06T17:00:00.000Z");
+      let public_close_date = convDatetoTime("2022-01-12T12:59:00.000Z");
+
+
+      let pre_round1_time_str = "Round 1<br>Open : " + pre_round1_date.toString() + "<br>Close : " + pre_round1_end_date.toString() ;
+      let pre_round2_time_str = "Round 2<br>Open : " + pre_round2_date.toString() + "<br>Close : " + pre_round2_end_date.toString() ;
+      let public_open_date_str = "Open : " + public_open_date.toString() ;
+      let public_close_str = "Close : " + public_close_date.toString();
+      $("#pre-round1-time").html(pre_round1_time_str);
+      $("#pre-round2-time").html(pre_round2_time_str);
+      $("#public-open-date").html(public_open_date_str);
+      $("#public-close-date").html(public_close_str);
+        
+    </script>
   </body>
 </html>
