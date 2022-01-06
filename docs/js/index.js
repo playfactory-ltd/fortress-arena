@@ -208,9 +208,10 @@ async function getTotalSupply() {
     // console.log("mintedCnt =>", mintedCnt);
     maxCnt = await checkMintingState(mintedCnt);
     // console.log("maxCnt => ", maxCnt);
-    if (mintedCnt < maxCnt) {
+    if (parseInt(mintedCnt) < parseInt(maxCnt)) {
       $(".claimedcnt").html(mintedCnt + "/" + maxCnt);
     } else {
+      $(".claimedcnt").html(mintedCnt + "/" + maxCnt);
       clearInterval(totalsupplyInterval);
     }
   }, 2000);
@@ -222,7 +223,7 @@ async function checkMintingState(_mintedCnt) {
   btn_mint = document.getElementById("btn_mint");
   switch (mintingState.toString()) {
     case "0":
-      if (_mintedCnt < foundersCnt + 1) {
+      if (parseInt(_mintedCnt) < foundersCnt + 1) {
         let starttime = convDatetoTime("2022-01-06T13:00:00.000Z");
 
         $("#comingsoon-content").html(
@@ -239,7 +240,7 @@ async function checkMintingState(_mintedCnt) {
     // pre-mint
     case "1":
       maxCnt = await nftContract.methods.MAX_PRE_ID().call();
-      if (_mintedCnt == maxCnt) {
+      if (parseInt(_mintedCnt) == parseInt(maxCnt)) {
         let pub_starttime = convDatetoTime("2022-01-06T17:00:00.000Z");
 
         btn_mint.disabled = true;
@@ -255,7 +256,7 @@ async function checkMintingState(_mintedCnt) {
     case "2":
       // public mint
       maxCnt = await nftContract.methods.MAX_PUBLIC_ID().call();
-      if (_mintedCnt == maxCnt) {
+      if (parseInt(_mintedCnt) == parseInt(maxCnt)) {
         btn_mint.disabled = true;
         showMintError("Public sale TANK NFTs are sold out.");
       } else {
