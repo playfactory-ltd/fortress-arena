@@ -1,6 +1,8 @@
 const setTheme = (theme) => (document.documentElement.className = theme);
 setTheme("aquamarine"); // initialize
 
+countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
+// countDownTimer("countdown", "01/06/2022 12:33 PM");
 // let nftAddress = "0xD732C56BC9008272D780F339f97de79089c34f4B"; // rinkeby
 let nftContract;
 
@@ -222,8 +224,12 @@ async function checkMintingState(_mintedCnt) {
   switch (mintingState.toString()) {
     case "0":
       if (_mintedCnt < foundersCnt + 1) {
+        let starttime = convDatetoTime("2022-01-06T13:00:00.000Z");
+
         $("#comingsoon-content").html(
-          '<h2 style="color:var(--second-color)">Pre-sale on Ethereum mainnet will start on 1:00 PM January 6th, 2022 (UTC).</h3>'
+          '<h2 style="color:var(--second-color)">Pre-sale on Ethereum mainnet will start on <br>' +
+            starttime.toString() +
+            "</h2>"
         );
       } else {
         $("#comingsoon-content").html(
@@ -235,9 +241,12 @@ async function checkMintingState(_mintedCnt) {
     case "1":
       maxCnt = await nftContract.methods.MAX_PRE_ID().call();
       if (_mintedCnt == maxCnt) {
+        let pub_starttime = convDatetoTime("2022-01-06T17:00:00.000Z");
+
         btn_mint.disabled = true;
         showMintError(
-          "Pre-sale TANK NFTs are sold out.<br>Public sale will start on 5:00 PM January 6th, 2022 (UTC)"
+          "Pre-sale TANK NFTs are sold out.<br>Public sale will start on <br>" +
+            pub_starttime.toString()
         );
       } else {
         btn_mint.disabled = false;
