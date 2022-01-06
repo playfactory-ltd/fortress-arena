@@ -153,6 +153,7 @@ const countDownTimer = function (id, date) {
     if (distDt <= 0) {
       clearInterval(timer);
       document.getElementById("div-countdown").style.display = "none";
+      document.getElementById("div-go-minting").style.display = "block";
       return;
     }
     var days = Math.floor(distDt / _day);
