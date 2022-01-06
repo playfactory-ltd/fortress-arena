@@ -1,6 +1,6 @@
 const setTheme = (theme) => (document.documentElement.className = theme);
 setTheme("aquamarine"); // initialize
-
+bgImageScale();
 countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
 // countDownTimer("countdown", "01/06/2022 12:33 PM");
 // let nftAddress = "0xD732C56BC9008272D780F339f97de79089c34f4B"; // rinkeby
@@ -66,7 +66,6 @@ function watchChainAccount() {
 
 async function startApp() {
   console.log("startApp");
-  bgImageScale();
   clearInterval(totalsupplyInterval);
   try {
     var currentChainId = await web3.eth.getChainId();
