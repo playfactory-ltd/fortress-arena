@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="UTF-8" />
-  <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
-  <!-- Primary Meta Tags -->
-  <title>Fortress Arena TANK NFT</title>
-  <meta name="title" content="Fortress Arena TANK NFT Minting Page" />
-  <meta name="description" content="Fortress Arena TANK NFT Minting Page" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta
-    property="og:url"
-    content="https://play-fatory.github.io/fortress-arena/"
-  />
-  <meta property="og:title" content="Fortress Arena TANK NFT Minting" />
-  <meta
-    property="og:description"
-    content="Fortress Arena TANK NFT Minting Page"
-  />
-  <meta
-    property="og:image"
-    content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
-  />
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta
-    property="twitter:url"
-    content="https://play-fatory.github.io/fortress-arena/"
-  />
-  <meta property="twitter:title" content="Fortress Arena TANK NFT Minting" />
-  <meta
-    property="twitter:description"
-    content="Fortress Arena TANK NFT Minting Page"
-  />
-  <meta
-    property="twitter:image"
-    content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
-  />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@Fortress_Arena" />
-  <meta name="twitter:title" content="Fortress Arena" />
-  <meta
-    name="twitter:description"
-    content="Fortress Arena TANK NFT Minting Page"
-  />
-  <meta
-    name="twitter:image"
-    content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
-  />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Fortress Arena TANK NFT Minting" />
-  <meta
-    name="twitter:description"
-    content="Fortress Arena TANK NFT Minting Page"
-  />
-  <meta
-    name="twitter:image"
-    content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
-  />
-  <meta
-    name="twitter:site"
-    content="https://play-fatory.github.io/fortress-arena/"
-  />  
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <!-- Primary Meta Tags -->
+    <title>Fortress Arena TANK NFT</title>
+    <meta name="title" content="Fortress Arena TANK NFT Minting Page" />
+    <meta name="description" content="Fortress Arena TANK NFT Minting Page" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://play-fatory.github.io/fortress-arena/"
+    />
+    <meta property="og:title" content="Fortress Arena TANK NFT Minting" />
+    <meta
+      property="og:description"
+      content="Fortress Arena TANK NFT Minting Page"
+    />
+    <meta
+      property="og:image"
+      content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
+    />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://play-fatory.github.io/fortress-arena/"
+    />
+    <meta property="twitter:title" content="Fortress Arena TANK NFT Minting" />
+    <meta
+      property="twitter:description"
+      content="Fortress Arena TANK NFT Minting Page"
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Fortress_Arena" />
+    <meta name="twitter:title" content="Fortress Arena" />
+    <meta
+      name="twitter:description"
+      content="Fortress Arena TANK NFT Minting Page"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Fortress Arena TANK NFT Minting" />
+    <meta
+      name="twitter:description"
+      content="Fortress Arena TANK NFT Minting Page"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.fortress-arena.io/images/logo_ftrs@2x.png"
+    />
+    <meta
+      name="twitter:site"
+      content="https://play-fatory.github.io/fortress-arena/"
+    />    
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -91,12 +91,12 @@
         border-radius: 20px;
         margin-top: 20px;
         background-color: coral;">
-          <h2 style="margin-bottom: 0px;  color:white">
+          <h2 style="margin-bottom: 0px;  color:white; display: none;">
             Time remaining until the Presale Whitelist Round 1 starts
           </h2>
           <h2
             id="countdown"
-            style="margin-top: 0px; color:white"
+            style="margin-top: 0px; color:white; display: none;"
           ></h2>
           <a
             target="_blank"
@@ -104,6 +104,14 @@
             href="../index.html"
             >Go to Minting page</a
           >
+          <br>
+          <br>
+          <a
+            target="_blank"
+            style="text-decoration: underline; color: black; font-size: 25px"
+            href="../walletinstall/walletinstall.html"
+            >Go to mobile wallet install guide ( Metamask )</a
+          >          
         </div>  
         <div id="div-go-minting" style="display: none; text-align: center;  padding: 20px;
         border-radius: 20px;
@@ -206,7 +214,7 @@
     </div>
     <script src="../js/utils.js" type=" text/javascript"></script>
     <script>
-      countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
+      // countDownTimer("countdown", "2022-01-06T13:00:00.000Z");
     </script>    
     <script>
       let pre_round1_date = convDatetoTime("2022-01-06T13:00:00.000Z");
